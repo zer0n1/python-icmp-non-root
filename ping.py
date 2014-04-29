@@ -360,4 +360,10 @@ def multi_ping_query(hosts, timeout=1, step=512, ignore_errors=False):
  
 if __name__ == '__main__':
     # Testing
-    verbose_ping('192.168.86.254')
+    verbose_ping('google.com')
+    verbose_ping('an-invalid-test-url.com')
+    verbose_ping('127.0.0.1')
+    host_list = ['www.heise.de', 'google.com', '127.0.0.1',
+                 'an-invalid-test-url.com']
+    for host, ping in multi_ping_query(host_list).iteritems():
+        print(host, '=', ping)
